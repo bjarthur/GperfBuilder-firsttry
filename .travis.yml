@@ -17,6 +17,10 @@ env:
     - BINARYBUILDER_AUTOMATIC_APPLE=true
 sudo: required
 
+before_install:
+  brew cask install docker
+  /Applications/Docker.app/Contents/MacOS/Docker &
+
 # Before anything else, get the latest versions of things
 before_script:
   - julia -e 'using Pkg; Pkg.clone("https://github.com/JuliaPackaging/BinaryProvider.jl")'
