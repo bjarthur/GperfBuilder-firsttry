@@ -15,7 +15,13 @@ env:
   global:
     - BINARYBUILDER_DOWNLOADS_CACHE=downloads
     - BINARYBUILDER_AUTOMATIC_APPLE=true
+    - BINARYBUILDER_RUNNER=docker
 sudo: required
+
+before_install:
+  - brew cask install docker
+  - /Applications/Docker.app/Contents/MacOS/Docker &
+  - sleep 25
 
 # Before anything else, get the latest versions of things
 before_script:
